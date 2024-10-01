@@ -1,0 +1,31 @@
+.container {
+    flex: 1;
+    padding: 40px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.userContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.userContainer img {
+    border-radius: 50%;
+}
+
+.smallInfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    margin-top: 6px;
+}

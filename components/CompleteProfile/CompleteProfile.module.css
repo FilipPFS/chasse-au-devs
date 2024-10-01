@@ -35,13 +35,14 @@
 .formBlockDesc {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
 .formBlock input,
 .formBlock select,
 .formBlock textarea,
 .formBlockDesc textarea {
+  font-size: 16px;
   padding: 10px;
   border: none;
   border-radius: 8px;
@@ -76,4 +77,39 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 20px;
+  background-color: blue;
+  color: white;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  width: 70%;
+}
+
+.btn {
+  padding: 10px 30px;
+  background-color: blue;
+  color: white;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+
+}
+
+.btn:hover {
+  background-color: rgb(30, 30, 135);
+}
+
+.btn:active {
+  background-color: rgb(14, 14, 87);
 }

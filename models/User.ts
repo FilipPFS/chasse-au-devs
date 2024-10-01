@@ -1,22 +1,22 @@
 import { Schema, model, Document, models } from "mongoose";
 
-interface Experience {
+export interface Experience {
   jobTitle: string;
-  yearsWorked: number;
-  quickDescription: string;
+  yearsWorked: number | null;
+  quickDescription?: string;
 }
 
-interface Links {
+export interface Links {
   linkedin?: string;
   twitter?: string;
   github?: string;
   personnal?: string;
 }
 
-interface Education {
-  schoolName: string;
-  diploma: string;
-  quickDescription: string;
+export interface Education {
+  schoolName?: string;
+  diploma?: string;
+  quickDescription?: string;
 }
 
 export interface UserSchema extends Document {

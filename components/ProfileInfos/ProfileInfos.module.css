@@ -1,0 +1,64 @@
+.mainPage {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.experienceContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.experience {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.expCard,
+.edcCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.expCard {
+  background-color: rgb(243, 239, 235);
+}
+
+.edcCard {
+  background-color: rgb(190, 234, 234);
+}
+
+.textContent {
+  white-space: pre-line;
+  font-size: 18px;
+}
+
+.expTime {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.link {
+  font-size: 23px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: white;
+  background-color: blue;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
