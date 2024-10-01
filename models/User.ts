@@ -6,24 +6,32 @@ interface Experience {
   quickDescription: string;
 }
 
+interface Links {
+  linkedin?: string;
+  twitter?: string;
+  github?: string;
+  personnal?: string;
+}
+
 interface Education {
   schoolName: string;
   diploma: string;
   quickDescription: string;
 }
 
-interface User extends Document {
+export interface UserSchema extends Document {
   email: string;
   username: string;
   image?: string;
   pdf?: string;
-  employer: boolean;
+  employer: "candidat" | "employer";
   experience?: Experience[];
-  links?: string[];
+  links?: Links;
   education?: Education[];
+  visible: Boolean;
 }
 
-const userSchema = new Schema<User>({
+const userSchema = new Schema<UserSchema>({
   email: {
     type: String,
     unique: true,
@@ -40,8 +48,8 @@ const userSchema = new Schema<User>({
     type: String,
   },
   employer: {
-    type: Boolean,
-    default: false,
+    type: String,
+    enum: ["candidat", "employer"],
   },
   experience: [
     {
@@ -51,8 +59,10 @@ const userSchema = new Schema<User>({
     },
   ],
   links: {
-    type: [String],
-    default: [],
+    linkedin: { type: String },
+    twitter: { type: String },
+    github: { type: String },
+    personnal: { type: String },
   },
   education: [
     {
@@ -61,8 +71,12 @@ const userSchema = new Schema<User>({
       quickDescription: { type: String },
     },
   ],
+  visible: {
+    type: Boolean,
+    default: false,
+  },
 });
 
-const UserModel = models.User || model<User>("User", userSchema);
+const User = models.User || model<UserSchema>("User", userSchema);
 
-export default UserModel;
+export default User;

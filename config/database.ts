@@ -7,6 +7,7 @@ const connectToDb = async () => {
 
   if (connected) {
     console.log("MongoDb is connected.");
+    console.log(mongoose.models);
     return;
   }
 

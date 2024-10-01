@@ -24,8 +24,6 @@ const Navbar = () => {
     ClientSafeProvider
   > | null>(null);
 
-  console.log(providers);
-
   useEffect(() => {
     const getAuthProviders = async () => {
       const res = await getProviders();
@@ -48,11 +46,8 @@ const Navbar = () => {
       </Link>
 
       <div className={styles.links}>
-        <Link href={"/"} className={styles.navLink}>
+        <Link href={"/jobs"} className={styles.navLink}>
           Offres
-        </Link>
-        <Link href={"/"} className={styles.navLink}>
-          Créer une offre
         </Link>
         {session ? (
           <div
@@ -69,7 +64,7 @@ const Navbar = () => {
             <h4 className={styles.username}>{session.user.name}</h4>
             {linksVisible && (
               <section className={styles.linksVisible}>
-                <Link href={"/profile"} className={styles.profileLink}>
+                <Link href={"/my-account"} className={styles.profileLink}>
                   Mon Compte
                 </Link>
                 <button onClick={() => signOut()} className={styles.signOut}>
