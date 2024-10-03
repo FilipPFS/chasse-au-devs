@@ -62,3 +62,19 @@
   padding: 10px 20px;
   border-radius: 8px;
 }
+
+.pdfBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
+  border-radius: 8px;
+  background-color: rgb(8, 8, 74);
+}
+
+.pdfIcon {
+  font-size: 40px;
+}

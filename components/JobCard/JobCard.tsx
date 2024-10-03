@@ -6,6 +6,8 @@ import React from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import styles from "./JobCard.module.css";
 import { useRouter } from "next/navigation";
+import { formatDistanceToNow } from "date-fns";
+import { fr } from "date-fns/locale";
 
 type Props = {
   job: IJob;
@@ -14,6 +16,10 @@ type Props = {
 
 const JobCard = ({ job, jobId }: Props) => {
   const router = useRouter();
+
+  const formatDateToNow = (date: string) => {
+    return formatDistanceToNow(new Date(date), { addSuffix: true, locale: fr });
+  };
 
   return (
     <div
@@ -32,6 +38,7 @@ const JobCard = ({ job, jobId }: Props) => {
           <span className={styles.tag}>{job.salary}</span>
           <span className={styles.tag}>{job.jobTime}</span>
         </div>
+        <small>Publié {formatDateToNow(job.createdAt!)}</small>
       </section>
       <Link className={styles.link} href={`/jobs/${jobId}`}>
         Voir l'offre

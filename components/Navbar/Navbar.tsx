@@ -50,29 +50,34 @@ const Navbar = () => {
           Offres
         </Link>
         {session ? (
-          <div
-            className={styles.profile}
-            onClick={() => setLinksVisible((prev) => !prev)}
-          >
-            <Image
-              src={session.user.image ? session.user.image : ""}
-              alt="google avatar"
-              width={40}
-              height={40}
-              className={styles.avatar}
-            />
-            <h4 className={styles.username}>{session.user.name}</h4>
-            {linksVisible && (
-              <section className={styles.linksVisible}>
-                <Link href={"/my-account"} className={styles.profileLink}>
-                  Mon Compte
-                </Link>
-                <button onClick={() => signOut()} className={styles.signOut}>
-                  Se déconnecter
-                </button>
-              </section>
-            )}
-          </div>
+          <>
+            <Link href={"/applications"} className={styles.navLink}>
+              Candidatures
+            </Link>
+            <div
+              className={styles.profile}
+              onClick={() => setLinksVisible((prev) => !prev)}
+            >
+              <Image
+                src={session.user.image ? session.user.image : ""}
+                alt="google avatar"
+                width={40}
+                height={40}
+                className={styles.avatar}
+              />
+              <h4 className={styles.username}>{session.user.name}</h4>
+              {linksVisible && (
+                <section className={styles.linksVisible}>
+                  <Link href={"/my-account"} className={styles.profileLink}>
+                    Mon Compte
+                  </Link>
+                  <button onClick={() => signOut()} className={styles.signOut}>
+                    Se déconnecter
+                  </button>
+                </section>
+              )}
+            </div>
+          </>
         ) : (
           <>
             {providers &&

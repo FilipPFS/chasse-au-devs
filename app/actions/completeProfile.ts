@@ -3,6 +3,7 @@
 import cloudinary from "@/config/cloudinary";
 import User, { Education, Experience, Links, UserSchema } from "@/models/User";
 import { getSessionUser } from "@/utils/getSessionUser";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 const uploadPdfToCloudinary = async (pdfFile: FormDataEntryValue | null) => {
@@ -116,19 +117,19 @@ export const completeProfile = async (formData: FormData): Promise<void> => {
     formData,
     "edcSchool",
     "edcDiploma",
-    "expDescription"
+    "edcDescription"
   );
   const education2 = createEducation(
     formData,
     "edcSchool2",
     "edcDiploma2",
-    "expDescription2"
+    "edcDescription2"
   );
   const education3 = createEducation(
     formData,
     "edcSchool3",
     "edcDiploma3",
-    "expDescription3"
+    "edcDescription3"
   );
 
   const education = [education1, education2, education3].filter(
@@ -157,6 +158,8 @@ export const completeProfile = async (formData: FormData): Promise<void> => {
     console.error(err);
     throw new Error("Failed to save user profile"); // Or handle accordingly
   }
+
+  revalidatePath("/my-account", "layout");
 
   redirect("/");
 };

@@ -19,6 +19,7 @@ export interface IJob {
   diploma: string;
   description: string;
   benefits: string[];
+  createdAt?: string;
 }
 
 const JobSchema = new Schema<IJob>(

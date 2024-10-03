@@ -1,0 +1,59 @@
+.form {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 60%;
+  margin: 40px;
+  background-color: rgb(244, 238, 238);
+  border-radius: 10px;
+}
+
+.form input {
+  width: 100%;
+  font-size: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.nameBlock,
+.contactBlock {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.labelBlock {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fileBlock {
+  display: flex;
+}
+
+.applyBtn {
+  width: 100%;
+  padding: 8px 10px;
+  background-color: #60219b;
+  color: white;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.applyBtn:hover {
+  background-color: #461575;
+}
+
+.applyBtn:active {
+  background-color: #2f0b52;
+}
