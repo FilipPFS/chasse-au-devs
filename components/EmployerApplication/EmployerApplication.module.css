@@ -1,0 +1,100 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: rgb(231, 239, 239);
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.sectionBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.offerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.offerLink {
+    background-color: blue;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 550;
+}
+
+.line {
+    border: 0.7px solid rgb(8, 8, 8, 0.5);
+}
+
+.applicationDetailBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.applicationDetail {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.singleApplicationDetail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: blue;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 550;
+}
+
+.userLink {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.userLink img {
+    border-radius: 50%;
+}
+
+.changeStatus {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 550;
+    width: fit-content;
+    padding: 6px 15px;
+    border-radius: 5px;
+    bottom: 12px;
+    right: 12px;
+    color: white;
+}
+
+.statusPending {
+    background-color: rgb(11, 11, 83);
+}
+
+.statusRejected {
+    background-color: rgb(146, 14, 14);
+}
+
+.statusAccepted {
+    background-color: rgb(55, 130, 14);
+}

@@ -53,3 +53,58 @@ export interface JobType {
   benefits: string[];
   createdAt?: string;
 }
+
+export interface JobCardType {
+  companyName: string;
+  location: {
+    city: string;
+    postalCode: string;
+    country: string;
+  };
+  _id: string;
+  jobTitle: string;
+  contract: string;
+  salary: string;
+  jobTime: string;
+  createdAt: string;
+}
+
+export interface UserApplication {
+  _id: string;
+  jobOffer: {
+    companyName: string;
+    location: {
+      city: string;
+      postalCode: string;
+      country: string;
+    };
+    _id: string;
+    jobTitle: string;
+    contract: string;
+    salary: string;
+    jobTime: string;
+    createdAt: string;
+  };
+  status: "Accepté" | "Rejetée" | "En attente de réponse";
+}
+
+export interface EmployerApplicationType {
+  _id: string;
+  jobOffer: {
+    companyName: string;
+    _id: string;
+    jobTitle: string;
+  };
+  sender: {
+    username: string;
+    _id: string;
+    image?: string;
+  };
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  cv: string;
+  coverLetter: string;
+  status: "Accepté" | "Rejetée" | "En attente de réponse";
+}
