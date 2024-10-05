@@ -7,9 +7,10 @@ import {
   FaUser,
   FaXmark,
 } from "react-icons/fa6";
-import { FaCheck, FaClock, FaFilePdf } from "react-icons/fa";
+import { FaCheck, FaClock, FaFilePdf, FaTrashAlt } from "react-icons/fa";
 import Image from "next/image";
 import StatusForm from "../StatusForm/StatusForm";
+import { deleteEmployerApplication } from "@/app/actions/deleteEmployerApplication";
 
 type Props = {
   applicationId: string;
@@ -106,6 +107,7 @@ const EmployerApplication = ({
           <h3>{senderUsername}</h3>
         </Link>
       </section>
+      <div className={styles.line}></div>
       <section className={styles.sectionBlock}>
         <h2>Status de la candidature</h2>
         {applicationStatus && applicationStatus === "En attente de réponse" ? (
@@ -117,9 +119,21 @@ const EmployerApplication = ({
           </div>
         ) : null}
         {applicationStatus && applicationStatus === "Rejetée" ? (
-          <span className={`${styles.status} ${styles.statusRejected}`}>
-            <FaXmark /> {applicationStatus}
-          </span>
+          <>
+            <span className={`${styles.status} ${styles.statusRejected}`}>
+              <FaXmark /> {applicationStatus}
+            </span>
+            <form action={deleteEmployerApplication}>
+              <input
+                type="hidden"
+                name="applicationId"
+                defaultValue={applicationId}
+              />
+              <button className={`${styles.status} ${styles.statusRejected}`}>
+                <FaTrashAlt /> Supprimer
+              </button>
+            </form>
+          </>
         ) : null}
         {applicationStatus && applicationStatus === "Accepté" ? (
           <span className={`${styles.status} ${styles.statusAccepted}`}>

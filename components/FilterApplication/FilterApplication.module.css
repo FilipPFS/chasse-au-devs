@@ -1,0 +1,26 @@
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.form input,
+.form select,
+.form button {
+    font-size: 18px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+}
+
+.form select {
+    font-weight: 550;
+    background-color: rgb(221, 236, 231);
+}
+
+.form button {
+    background-color: rgb(79, 79, 226);
+    color: white;
+    font-weight: 550;
+}

@@ -2,6 +2,7 @@ import { getEmployerApplications } from "@/app/actions/getEmployerApplications";
 import EmployerApplication from "@/components/EmployerApplication/EmployerApplication";
 import { EmployerApplicationType } from "@/types/user";
 import styles from "./ApplicationsReceived.module.css";
+import FilterApplication from "@/components/FilterApplication/FilterApplication";
 
 const ApplicationsReceived = async () => {
   const employerApplications: EmployerApplicationType[] | undefined =
@@ -13,7 +14,10 @@ const ApplicationsReceived = async () => {
 
   return (
     <div className={styles.container}>
-      <h1>Candidatures recues suite à vos offres</h1>
+      <div className={styles.header}>
+        <h1>Candidatures recues suite à vos offres</h1>
+        <FilterApplication />
+      </div>
       <section className={styles.applications}>
         {employerApplications?.map((application) => (
           <EmployerApplication

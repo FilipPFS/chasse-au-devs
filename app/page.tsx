@@ -7,6 +7,7 @@ import { UserType } from "@/types/user";
 import { getSessionDb } from "./actions/getSessionDb";
 import { redirect } from "next/navigation";
 import { getJobsHome } from "./actions/getJobs";
+import SearchForm from "@/components/SearchForm/SearchForm";
 
 const Home = async () => {
   const jobs = await getJobsHome();
@@ -22,6 +23,7 @@ const Home = async () => {
 
   return (
     <div className={styles.home}>
+      <SearchForm />
       <h1 className={styles.title}>Les dernières offres d'emploi</h1>
       <div className={styles.jobContainer}>
         {jobs.map((job) => (

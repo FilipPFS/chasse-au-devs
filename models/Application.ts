@@ -3,7 +3,7 @@ import { Schema, model, Document, models, Types } from "mongoose";
 export interface ApplicationSchema extends Document {
   jobOffer: Types.ObjectId;
   sender: Types.ObjectId;
-  jobCreator: Types.ObjectId;
+  jobCreator: Types.ObjectId | null;
   firstName: string;
   lastName: string;
   email: string;
@@ -16,7 +16,7 @@ export interface ApplicationSchema extends Document {
 const applicationSchema = new Schema<ApplicationSchema>({
   jobOffer: { type: Schema.Types.ObjectId, ref: "JobOffer", required: true },
   sender: { type: Schema.Types.ObjectId, ref: "User", required: true },
-  jobCreator: { type: Schema.Types.ObjectId, ref: "User", required: true },
+  jobCreator: { type: Schema.Types.ObjectId, ref: "User", required: false },
   firstName: {
     type: String,
     required: [true, "First name is required"],
