@@ -2,13 +2,12 @@ import Link from "next/link";
 import React from "react";
 import { FaCheck, FaClock, FaLocationDot, FaXmark } from "react-icons/fa6";
 import styles from "./JobCard.module.css";
-import { useRouter } from "next/navigation";
 import { formatDistanceToNow } from "date-fns";
 import { fr } from "date-fns/locale";
-import { JobCardType } from "@/types/user";
+import { JobCardType, JobType } from "@/types/user";
 
 type Props = {
-  job: JobCardType;
+  job: JobCardType | JobType;
   jobId: string;
   status?: "Accepté" | "Rejetée" | "En attente de réponse";
 };

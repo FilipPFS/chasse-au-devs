@@ -37,6 +37,9 @@ const Navbar = async () => {
             )}
           </>
         )}
+        {user?.employer === "employer" && (
+          <Link href={"/my-account/offers"}>Mes offres</Link>
+        )}
         <Providers />
       </div>
     </nav>
