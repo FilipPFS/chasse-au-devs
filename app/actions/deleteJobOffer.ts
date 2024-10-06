@@ -7,7 +7,14 @@ import { getSessionUser } from "@/utils/getSessionUser";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-export const deleteJobOffer = async (formData: FormData) => {
+type FormState = {
+  submitted: boolean;
+};
+
+export const deleteJobOffer = async (
+  previousState: FormState,
+  formData: FormData
+): Promise<{ submitted: boolean }> => {
   try {
     await connectToDb();
 
@@ -38,12 +45,11 @@ export const deleteJobOffer = async (formData: FormData) => {
       applicationLinkedWithOffer.map((application) => application.deleteOne())
     );
 
-    alert("L'offre d'emploi a été suprimé.");
+    revalidatePath("/my-account/offers", "layout");
+
+    return { submitted: true };
   } catch (err) {
     console.error(err);
+    return { submitted: false };
   }
-
-  revalidatePath("/my-account/offers", "layout");
-
-  redirect("/my-account/offers");
 };

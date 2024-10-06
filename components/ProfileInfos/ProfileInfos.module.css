@@ -78,3 +78,18 @@
 .pdfIcon {
   font-size: 40px;
 }
+
+@media (max-width: 750px) {
+  .links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .link {
+    width: 100%;
+  }
+
+  .pdfBtn {
+    width: 100%;
+  }
+}

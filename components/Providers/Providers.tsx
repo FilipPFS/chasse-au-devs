@@ -3,7 +3,7 @@ import styles from "./Providers.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { FaGoogle } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import {
   ClientSafeProvider,
   getProviders,
@@ -14,7 +14,11 @@ import {
 } from "next-auth/react";
 import { BuiltInProviderType } from "next-auth/providers/index";
 
-const Providers = () => {
+type Props = {
+  setOpen?: (value: SetStateAction<boolean>) => void;
+};
+
+const Providers = ({ setOpen }: Props) => {
   const { data: session } = useSession();
   const [linksVisible, setLinksVisible] = useState(false);
 
@@ -33,7 +37,7 @@ const Providers = () => {
   }, []);
 
   return (
-    <div>
+    <>
       {session ? (
         <>
           <div
@@ -59,6 +63,20 @@ const Providers = () => {
               </section>
             )}
           </div>
+          <div className={styles.mobileProfile}>
+            <Link href={"/my-account"} onClick={() => setOpen!(false)}>
+              <Image
+                src={session.user.image ? session.user.image : ""}
+                alt="google avatar"
+                width={40}
+                height={40}
+                className={styles.avatar}
+              />
+            </Link>
+            <button onClick={() => signOut()} className={styles.connectButton}>
+              Se déconnecter
+            </button>
+          </div>
         </>
       ) : (
         <>
@@ -77,7 +95,7 @@ const Providers = () => {
             })}
         </>
       )}
-    </div>
+    </>
   );
 };
 

@@ -24,3 +24,20 @@
     color: white;
     font-weight: 550;
 }
+
+@media (max-width: 750px) {
+    .form {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .selectBlock {
+        width: 100%;
+    }
+
+    .form select,
+    .form button {
+        width: 100%;
+    }
+}

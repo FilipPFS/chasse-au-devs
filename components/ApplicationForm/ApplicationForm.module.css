@@ -57,3 +57,27 @@
 .applyBtn:active {
   background-color: #2f0b52;
 }
+
+@media (max-width: 750px) {
+  .form {
+    width: 90%;
+    padding: 20px;
+    margin: 0;
+    margin-top: 40px;
+  }
+
+  .nameBlock,
+  .contactBlock {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .fileBlock {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .applyBtn {
+    margin-top: 20px;
+  }
+}

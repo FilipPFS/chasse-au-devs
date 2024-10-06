@@ -113,3 +113,15 @@
 .btn:active {
   background-color: rgb(14, 14, 87);
 }
+
+@media (max-width: 750px) {
+  .modal {
+    width: 90%;
+    z-index: 999;
+    padding: 20px;
+  }
+
+  .addBtn {
+    width: 100%;
+  }
+}

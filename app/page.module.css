@@ -18,3 +18,22 @@
     gap: 15px;
     width: 100%;
 }
+
+.jobContainer {
+    padding-bottom: 30px;
+}
+
+@media (max-width: 750px) {
+
+    .titleContainer {
+        padding: 0 15px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 29px;
+    }
+
+}

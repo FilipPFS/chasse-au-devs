@@ -8,6 +8,7 @@ import React from "react";
 import styles from "./DashboardOffers.module.css";
 import { FaEye, FaTrash } from "react-icons/fa6";
 import { deleteJobOffer } from "@/app/actions/deleteJobOffer";
+import DeleteConfirm from "@/components/DeleteConfirm/DeleteConfirm";
 
 const DasboardOffers = async () => {
   const user: UserType = await getSessionDb();
@@ -19,7 +20,7 @@ const DasboardOffers = async () => {
 
   return (
     <div className={styles.container}>
-      <h1>Mes offres d'emploi</h1>
+      <h1 className={styles.title}>Mes offres d'emploi</h1>
       <div className={styles.jobOffers}>
         {jobOffers?.map(async (jobOffer) => (
           <div className={styles.singleOffer}>
@@ -28,12 +29,7 @@ const DasboardOffers = async () => {
               <Link href={`/my-account/offers/${jobOffer._id}`}>
                 <FaEye /> Voir les candidatures
               </Link>
-              <form action={deleteJobOffer}>
-                <input type="hidden" name="jobOfferId" value={jobOffer._id} />
-                <button type="submit">
-                  <FaTrash /> Supprimer l'offre
-                </button>
-              </form>
+              <DeleteConfirm jobId={jobOffer._id} />
             </div>
           </div>
         ))}

@@ -26,7 +26,7 @@ const DashboardApplications = async ({
   }
   return (
     <div className={styles.container}>
-      <h1>Les candidatures pour cette offre</h1>
+      <h1 className={styles.title}>Les candidatures pour cette offre</h1>
       <div className={styles.applications}>
         {applications?.map((application) => (
           <EmployerApplication

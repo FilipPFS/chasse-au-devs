@@ -38,11 +38,13 @@ const SearchPage = async ({
     <div className={styles.container}>
       <SearchForm />
       <div className={styles.contentContainer}>
-        <span className={styles.search}>
-          Les résultats de recherche pour{" "}
-          <span className={styles.keyWord}>{technology && technology}</span>{" "}
-          <span className={styles.keyWord}>{contract && contract}</span>
-        </span>
+        <div className={styles.searchContainer}>
+          <span className={styles.search}>
+            Les résultats de recherche pour{" "}
+            <span className={styles.keyWord}>{technology && technology}</span>{" "}
+            <span className={styles.keyWord}>{contract && contract}</span>
+          </span>
+        </div>
         <div className={styles.jobCardContainer}>
           {jobsQueryResults.map((job) => (
             <JobCard job={job} jobId={job._id} />

@@ -3,8 +3,6 @@ import styles from "./Apply.module.css";
 import { FaLocationDot } from "react-icons/fa6";
 import { JobType, UserType } from "@/types/user";
 import { getJobById } from "@/app/actions/getJobById";
-import PdfUploader from "@/components/PdfUploader/PdfUploader";
-import createJobApplication from "@/app/actions/createJobApplication";
 import { getSessionDb } from "@/app/actions/getSessionDb";
 import { redirect } from "next/navigation";
 import ApplicationForm from "@/components/ApplicationForm/ApplicationForm";

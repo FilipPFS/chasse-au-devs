@@ -24,7 +24,9 @@ const Home = async () => {
   return (
     <div className={styles.home}>
       <SearchForm />
-      <h1 className={styles.title}>Les dernières offres d'emploi</h1>
+      <div className={styles.titleContainer}>
+        <h1 className={styles.title}>Les dernières offres d'emploi</h1>
+      </div>
       <div className={styles.jobContainer}>
         {jobs.map((job) => (
           <JobCard job={job} jobId={job._id} />

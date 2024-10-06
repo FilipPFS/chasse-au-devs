@@ -70,3 +70,28 @@
 .form button:active {
     background-color: rgb(9, 9, 91);
 }
+
+@media (max-width: 750px) {
+    .editBtn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .danger {
+        gap: 20px;
+    }
+
+    .dangerIcon {
+        font-size: 35px;
+    }
+
+    .statusChange {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .statusChange select,
+    .statusChange button {
+        width: 100%;
+    }
+}

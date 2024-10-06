@@ -39,3 +39,22 @@
     align-items: center;
     gap: 5px;
 }
+
+@media (max-width: 750px) {
+
+    .container {
+        padding-bottom: 30px;
+    }
+
+    .main {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .applyBlock {
+        order: -1;
+        position: static;
+        width: 90%;
+    }
+}

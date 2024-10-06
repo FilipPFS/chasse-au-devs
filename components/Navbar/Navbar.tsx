@@ -4,6 +4,7 @@ import styles from "./Navbar.module.css";
 import Providers from "../Providers/Providers";
 import { getSessionDb } from "@/app/actions/getSessionDb";
 import { UserType } from "@/types/user";
+import MobileNav from "../MobileNav/MobileNav";
 
 const Navbar = async () => {
   const user: UserType | null = await getSessionDb();
@@ -17,7 +18,7 @@ const Navbar = async () => {
           width={60}
           height={60}
         />
-        <h1>ChasseAuDevs</h1>
+        <h1 className={styles.logoTitle}>ChasseAuDevs</h1>
       </Link>
 
       <div className={styles.links}>
@@ -42,6 +43,7 @@ const Navbar = async () => {
         )}
         <Providers />
       </div>
+      <MobileNav userEmployer={user?.employer} />
     </nav>
   );
 };

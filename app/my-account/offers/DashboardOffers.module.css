@@ -32,8 +32,7 @@
     justify-content: space-between;
 }
 
-.singleOfferButtons a,
-.singleOfferButtons button {
+.singleOfferButtons a {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -50,6 +49,24 @@
     background-color: blue;
 }
 
-.singleOfferButtons button {
-    background-color: red;
+@media (max-width: 750px) {
+    .container {
+        padding: 40px 10px;
+    }
+
+    .title {
+        font-size: 29px;
+        text-align: center;
+    }
+
+    .singleOfferButtons {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .singleOfferButtons a {
+        justify-content: center;
+        width: 90%;
+    }
 }

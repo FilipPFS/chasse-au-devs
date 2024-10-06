@@ -9,6 +9,12 @@
     width: 100%;
 }
 
+.selectBlock {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 .form input,
 .form select,
 .form button {
@@ -30,4 +36,29 @@
     background-color: rgb(79, 79, 226);
     color: white;
     font-weight: 550;
+}
+
+@media (max-width: 750px) {
+    .form {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .inputBlock {
+        width: 100%;
+    }
+
+    .selectBlock {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .form select,
+    .form button {
+        width: 47%;
+    }
+
+    .form input {
+        width: 100%;
+    }
 }

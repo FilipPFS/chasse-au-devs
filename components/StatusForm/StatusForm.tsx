@@ -33,7 +33,7 @@ const StatusForm = ({ applicationId }: Props) => {
             defaultValue={applicationId}
           />
           <span className={styles.danger}>
-            <FaTriangleExclamation />
+            <FaTriangleExclamation className={styles.dangerIcon} />
             Si vous modifiez le statut de la candidature, vous ne pourrez plus
             le faire.
           </span>

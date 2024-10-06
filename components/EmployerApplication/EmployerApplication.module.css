@@ -98,3 +98,53 @@
 .statusAccepted {
     background-color: rgb(55, 130, 14);
 }
+
+@media (max-width: 750px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .offerContainer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .offerLink {
+        width: 100%;
+        text-align: center;
+    }
+
+    .sectionBlock {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .offerContainer {
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .applicationDetailBlock {
+        gap: 15px;
+        width: 100%;
+    }
+
+    .applicationDetail {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .singleApplicationDetail {
+        width: 100%;
+    }
+
+    .status {
+        width: 100%;
+    }
+
+    .changeStatus {
+        flex-direction: column;
+        width: 100%;
+    }
+}

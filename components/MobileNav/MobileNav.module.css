@@ -1,0 +1,59 @@
+.mobileLinks {
+    display: none;
+}
+
+@media (max-width: 750px) {
+    .mobileLinks {
+        display: block;
+    }
+
+    .openButton {
+        background-color: transparent;
+        border: none;
+        z-index: 200;
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        cursor: pointer;
+    }
+
+    .barsIcon {
+        font-size: 20px;
+    }
+
+    .mobileNav {
+        background-color: aliceblue;
+        min-height: 100vh;
+        position: fixed;
+        right: 0;
+        top: 0;
+        padding-top: 70px;
+        z-index: 100;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        opacity: 0;
+        transform: translateX(100%);
+        animation: slideIn 0.5s ease-out forwards;
+
+    }
+
+    .mobileNav a {
+        width: 100%;
+        padding: 10px 15px;
+        font-weight: 700;
+        text-align: end;
+    }
+
+    .mobileNav a:hover {
+        background-color: rgb(198, 213, 227);
+    }
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

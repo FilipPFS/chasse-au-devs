@@ -10,15 +10,20 @@ type Props = {
   job: JobCardType | JobType;
   jobId: string;
   status?: "Accepté" | "Rejetée" | "En attente de réponse";
+  applicationPage?: boolean;
 };
 
-const JobCard = ({ job, jobId, status }: Props) => {
+const JobCard = ({ job, jobId, status, applicationPage }: Props) => {
   const formatDateToNow = (date: string) => {
     return formatDistanceToNow(new Date(date), { addSuffix: true, locale: fr });
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${
+        applicationPage ? styles.appContainer : ""
+      }`}
+    >
       <Link href={`/jobs/${jobId}`} className={styles.containerLink}>
         <section className={styles.jobInfos}>
           <small>{job.companyName}</small>

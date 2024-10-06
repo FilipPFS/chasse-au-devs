@@ -5,6 +5,7 @@ import { getSessionDb } from "../actions/getSessionDb";
 import ProfileInfos from "@/components/ProfileInfos/ProfileInfos";
 import styles from "./myAccount.module.css";
 import { FaEye } from "react-icons/fa";
+import LoaderSpinner from "@/components/LoaderSpinner/LoaderSpinner";
 
 type Props = {};
 
@@ -12,7 +13,7 @@ const MyAccount = async (props: Props) => {
   const user: UserType | null = await getSessionDb();
 
   if (!user) {
-    return <div>No user</div>;
+    return <LoaderSpinner />;
   }
 
   return (
@@ -32,7 +33,9 @@ const MyAccount = async (props: Props) => {
             </small>
           </div>
         </div>
-        <CompleteProfileButton />
+        {user.education?.length === 0 && user.experience?.length === 0 && (
+          <CompleteProfileButton />
+        )}
       </section>
       <ProfileInfos user={user} />
     </div>

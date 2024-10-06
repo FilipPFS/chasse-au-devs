@@ -28,3 +28,10 @@
 .fileUploadInput {
     display: none;
 }
+
+@media (max-width: 750px) {
+    .fileUploadContainer {
+        padding: 0;
+        text-align: center;
+    }
+}

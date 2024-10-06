@@ -28,6 +28,7 @@ const Applications = async (props: Props) => {
             job={application.jobOffer}
             jobId={application.jobOffer._id}
             status={application.status}
+            applicationPage={true}
           />
         ))}
       </div>

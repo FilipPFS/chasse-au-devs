@@ -17,7 +17,7 @@ const FilterApplication = () => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <div>
+      <div className={styles.selectBlock}>
         <select value={status} onChange={(e) => setStatus(e.target.value)}>
           <option value="En attente de réponse">En attente de réponse</option>
           <option value="Accepté">Accepté</option>

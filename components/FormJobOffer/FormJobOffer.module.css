@@ -104,5 +104,6 @@
     .modal {
         width: 90%;
         padding: 20px;
+        z-index: 999;
     }
 }

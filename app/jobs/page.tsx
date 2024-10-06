@@ -22,7 +22,9 @@ const Jobs = async () => {
   return (
     <div className={styles.container}>
       <CreateJobButton userEmployer={userEmployer} />
-      <h1>Les meilleurs offres d'emploi</h1>
+      <div className={styles.titleContainer}>
+        <h1>Les meilleurs offres d'emploi</h1>
+      </div>
       <div className={styles.jobContainer}>
         {jobs.map((job) => (
           <JobCard job={job} jobId={job._id} />

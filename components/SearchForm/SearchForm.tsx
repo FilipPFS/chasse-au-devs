@@ -23,7 +23,7 @@ const SearchForm = () => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <div>
+      <div className={styles.inputBlock}>
         <input
           type="text"
           placeholder="Rechercher une offre"
@@ -31,7 +31,7 @@ const SearchForm = () => {
           onChange={(e) => setTechnology(e.target.value)}
         />
       </div>
-      <div>
+      <div className={styles.selectBlock}>
         <select value={contract} onChange={(e) => setContract(e.target.value)}>
           <option value="Tous">Tous</option>
           <option value="Alternance">Alternance</option>
@@ -42,8 +42,8 @@ const SearchForm = () => {
           <option value="Freelance">Freelance</option>
           <option value="Associé">Associé</option>
         </select>
+        <button type="submit">Rechercher</button>
       </div>
-      <button type="submit">Rechercher</button>
     </form>
   );
 };
