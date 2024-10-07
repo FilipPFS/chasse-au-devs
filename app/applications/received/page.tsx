@@ -3,6 +3,7 @@ import EmployerApplication from "@/components/EmployerApplication/EmployerApplic
 import { EmployerApplicationType } from "@/types/user";
 import styles from "./ApplicationsReceived.module.css";
 import FilterApplication from "@/components/FilterApplication/FilterApplication";
+import LoaderSpinner from "@/components/LoaderSpinner/LoaderSpinner";
 
 export const dynamic = "force-dynamic";
 
@@ -11,7 +12,11 @@ const ApplicationsReceived = async () => {
     await getEmployerApplications();
 
   if (!employerApplications) {
-    <div>Aucun candidat n'a postulé sur vos offres pour le moment.</div>;
+    return <LoaderSpinner />;
+  }
+
+  if (employerApplications.length === 0) {
+    return <div>Aucune candidature n'a été recu pour cette offre.</div>;
   }
 
   return (

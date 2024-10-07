@@ -4,6 +4,7 @@ import { UserType } from "@/types/user";
 import { setUserType } from "../actions/setUserType";
 import { redirect } from "next/navigation";
 import styles from "./Question.module.css";
+import LoaderSpinner from "@/components/LoaderSpinner/LoaderSpinner";
 
 export const dynamic = "force-dynamic";
 
@@ -11,6 +12,10 @@ type Props = {};
 
 const Question = async (props: Props) => {
   const user: UserType | null = await getSessionDb();
+
+  if (!user) {
+    return <LoaderSpinner />;
+  }
 
   return (
     <div>

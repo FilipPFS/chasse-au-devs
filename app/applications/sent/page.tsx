@@ -3,6 +3,7 @@ import styles from "./ApplicationsSent.module.css";
 import Link from "next/link";
 import JobCard from "@/components/JobCard/JobCard";
 import { getUserApplications } from "@/app/actions/getUserApplications";
+import LoaderSpinner from "@/components/LoaderSpinner/LoaderSpinner";
 
 export const dynamic = "force-dynamic";
 
@@ -13,6 +14,10 @@ const Applications = async (props: Props) => {
     await getUserApplications();
 
   if (!myApplications) {
+    return <LoaderSpinner />;
+  }
+
+  if (myApplications.length === 0) {
     return (
       <div>
         Vous n'avez toujours pas envoyé de candidatures.
