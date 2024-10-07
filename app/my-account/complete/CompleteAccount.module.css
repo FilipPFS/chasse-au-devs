@@ -1,0 +1,133 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 0;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    background-color: azure;
+    width: 93%;
+    padding: 15px;
+    font-weight: 550;
+    background-color: rgb(12, 12, 73);
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.form input,
+.form select,
+.form textarea,
+.form textarea {
+    font-size: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.socialsBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: rgb(189, 244, 244);
+    padding: 40px;
+    width: 100%;
+}
+
+.visibilityBlock {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.visibilityLabel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cvBlock {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.defaultCv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: rgb(15, 135, 135);
+    border-radius: 10px;
+    padding: 5px 15px;
+    font-weight: 600;
+    width: 200px;
+    text-align: center;
+    color: white;
+    margin-top: 15px;
+}
+
+.submitButton {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.submitButton:hover {
+    background-color: rgb(30, 30, 135);
+}
+
+.button:active {
+    background-color: rgb(14, 14, 87);
+}
+
+
+@media (max-width: 750px) {
+
+    .title {
+        font-size: 29px;
+        text-align: center;
+    }
+
+    .socialsBlock {
+        padding: 20px;
+    }
+
+    .visibilityBlock {
+        text-align: center;
+    }
+
+    .defaultCv {
+        margin: 15px 0;
+    }
+
+    .info {
+        font-size: 14px;
+    }
+}

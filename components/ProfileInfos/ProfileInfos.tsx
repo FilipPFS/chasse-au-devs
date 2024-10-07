@@ -36,7 +36,7 @@ const ProfileInfos = ({ user }: Props) => {
               <div className={styles.expCard}>
                 <h2>{exp.jobTitle}</h2>
                 <small className={styles.expTime}>
-                  <FaClock /> {exp.yearsWorked} an(s)
+                  <FaClock /> {exp.yearsWorked}
                 </small>
                 <p className={styles.textContent}>{exp.quickDescription}</p>
               </div>

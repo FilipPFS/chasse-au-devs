@@ -6,6 +6,7 @@ import ProfileInfos from "@/components/ProfileInfos/ProfileInfos";
 import styles from "./myAccount.module.css";
 import { FaEye } from "react-icons/fa";
 import LoaderSpinner from "@/components/LoaderSpinner/LoaderSpinner";
+import Link from "next/link";
 
 type Props = {};
 
@@ -35,6 +36,9 @@ const MyAccount = async (props: Props) => {
         </div>
         {user.education?.length === 0 && user.experience?.length === 0 && (
           <CompleteProfileButton />
+        )}
+        {user.education!.length > 0 && user.experience!.length > 0 && (
+          <Link href={"/my-account/complete"}>Modifer mon profil</Link>
         )}
       </section>
       <ProfileInfos user={user} />

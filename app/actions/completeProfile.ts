@@ -6,7 +6,9 @@ import { getSessionUser } from "@/utils/getSessionUser";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-const uploadPdfToCloudinary = async (pdfFile: FormDataEntryValue | null) => {
+export const uploadPdfToCloudinary = async (
+  pdfFile: FormDataEntryValue | null
+) => {
   if (pdfFile instanceof File && pdfFile.type === "application/pdf") {
     const arrayBuffer = await pdfFile.arrayBuffer();
     const pdfArray = Array.from(new Uint8Array(arrayBuffer));
@@ -32,17 +34,19 @@ const uploadPdfToCloudinary = async (pdfFile: FormDataEntryValue | null) => {
   }
 };
 
-const createExperience = (
+export const createExperience = (
   formData: FormData,
   jobTitleKey: string,
-  yearsWorkedKey: string,
+  timeWorkedKey: string,
+  typeWorkedKey: string,
   descriptionKey: string
 ): Experience | null => {
   const jobTitle = formData.get(jobTitleKey) as string;
-  const yearsWorked = formData.get(yearsWorkedKey)
-    ? Number(formData.get(yearsWorkedKey))
-    : null;
+  const timeWorked = formData.get(timeWorkedKey) as string;
+  const typeWorked = formData.get(typeWorkedKey) as string;
   const quickDescription = formData.get(descriptionKey) as string;
+
+  const yearsWorked = `${timeWorked} ${typeWorked}`;
 
   if (jobTitle || yearsWorked || quickDescription) {
     return {
@@ -90,27 +94,30 @@ export const completeProfile = async (formData: FormData): Promise<void> => {
 
   const pdf = await uploadPdfToCloudinary(pdfFile);
 
-  const experience1 = createExperience(
+  const experience1 = await createExperience(
     formData,
     "expTitle",
-    "expYears",
+    "exp_number",
+    "exp_select",
     "expDescription"
   );
-  const experience2 = createExperience(
+  const experience2 = await createExperience(
     formData,
     "expTitle2",
-    "expYears2",
+    "exp_number2",
+    "exp_select2",
     "expDescription2"
   );
-  const experience3 = createExperience(
+  const experience3 = await createExperience(
     formData,
     "expTitle3",
-    "expYears3",
+    "exp_number3",
+    "exp_select3",
     "expDescription3"
   );
 
   const experience = [experience1, experience2, experience3].filter(
-    (exp): exp is Experience => exp !== null
+    (exp): exp is Experience => exp?.jobTitle !== null
   );
 
   const education1 = createEducation(
@@ -145,6 +152,16 @@ export const completeProfile = async (formData: FormData): Promise<void> => {
 
   const selectVisibility = formData.get("visibility");
   const visibility = selectVisibility === "public";
+
+  const newUser = {
+    pdf,
+    experience,
+    education,
+    links,
+    visibility,
+  };
+
+  console.log("NEW USER", newUser);
 
   try {
     userFromDb.pdf = pdf;

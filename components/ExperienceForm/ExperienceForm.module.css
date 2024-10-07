@@ -1,0 +1,53 @@
+.experienceBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: rgb(189, 244, 244);
+    padding: 40px;
+    width: 100%;
+}
+
+.experienceContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+.experienceContainer textarea {
+    height: 120px;
+}
+
+.formBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 33%;
+}
+
+.selectContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.selectContainer input,
+.selectContainer select {
+    width: 48%;
+}
+
+@media (max-width: 750px) {
+    .experienceBlock {
+        padding: 20px;
+    }
+
+    .experienceContainer {
+        flex-direction: column;
+    }
+
+    .formBlock {
+        width: 100%;
+    }
+}

@@ -1,0 +1,21 @@
+.formSection {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.formBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 49%;
+}
+
+@media (max-width: 750px) {
+    .formBlock {
+        width: 100%;
+    }
+}

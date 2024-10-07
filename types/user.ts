@@ -2,7 +2,7 @@ import { Types } from "mongoose";
 
 interface Experience {
   jobTitle: string;
-  yearsWorked: number;
+  yearsWorked: string;
   quickDescription: string;
 }
 

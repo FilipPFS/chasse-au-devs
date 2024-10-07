@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import styles from "./CompleteProfile.module.css";
-import { UserType } from "@/types/user";
 import { FaPlus } from "react-icons/fa";
 import { completeProfile } from "@/app/actions/completeProfile";
+import { FaXmark } from "react-icons/fa6";
 
 type Props = {
   isOpen: boolean;
@@ -11,7 +11,7 @@ type Props = {
 
 const CompleteProfile = ({ isOpen, setIsOpen }: Props) => {
   const [counter, setCounter] = useState(0);
-  const [secondCounter, setSecondCoutner] = useState(0);
+  const [secondCounter, setSecondCounter] = useState(0);
 
   return (
     <>
@@ -25,7 +25,7 @@ const CompleteProfile = ({ isOpen, setIsOpen }: Props) => {
             <h4>CV</h4>
             <div className={styles.formBlock}>
               <label>Ajouter mon CV</label>
-              <input type="file" name="pdf" accept="application/pdf" />
+              <input type="file" name="pdf" accept="application/pdf" required />
             </div>
           </section>
           <section className={styles.formSection}>
@@ -36,46 +36,102 @@ const CompleteProfile = ({ isOpen, setIsOpen }: Props) => {
                 type="text"
                 name="expTitle"
                 placeholder="Ex: Développeur Full Stack"
+                required
               />
-              <label>Années travaillés</label>
-              <input type="number" name="expYears" />
+              <section className={styles.formBlock}>
+                <label>Expérience</label>
+                <div className={styles.formSelector}>
+                  <input
+                    type="number"
+                    max={12}
+                    min={1}
+                    name="exp_number"
+                    defaultValue={1}
+                    required
+                  />
+                  <select name="exp_select">
+                    <option value={"mois"}>mois</option>
+                    <option value={"ans"}>ans</option>
+                  </select>
+                </div>
+              </section>
               <label>Description</label>
               <textarea
                 name="expDescription"
                 placeholder="Tâches et missions..."
+                required
               />
             </div>
           </section>
           {counter > 0 && (
             <section className={styles.formSection}>
+              <button onClick={() => setCounter((prev) => prev - 1)}>
+                <FaXmark />
+              </button>
               <div className={styles.formBlock}>
                 <label>Nom de l'entreprise</label>
                 <input
                   type="text"
                   name="expTitle2"
                   placeholder="Ex: Développeur Full Stack"
+                  required
                 />
-                <label>Années travaillés</label>
-                <input type="number" name="expYears2" />
+                <section className={styles.formBlock}>
+                  <label>Expérience</label>
+                  <div className={styles.formSelector}>
+                    <input
+                      type="number"
+                      max={12}
+                      min={1}
+                      name="exp_number2"
+                      defaultValue={1}
+                      required
+                    />
+                    <select name="exp_select2">
+                      <option value={"mois"}>mois</option>
+                      <option value={"ans"}>ans</option>
+                    </select>
+                  </div>
+                </section>
                 <label>Description</label>
                 <textarea
                   name="expDescription2"
                   placeholder="Tâches et missions..."
+                  required
                 />
               </div>
             </section>
           )}
           {counter > 1 && (
             <section className={styles.formSection}>
+              <button onClick={() => setCounter((prev) => prev - 1)}>
+                <FaXmark />
+              </button>
               <div className={styles.formBlock}>
                 <label>Nom de l'entreprise</label>
                 <input
                   type="text"
                   name="expTitle3"
                   placeholder="Ex: Développeur Full Stack"
+                  required
                 />
-                <label>Années travaillés</label>
-                <input type="number" name="expYears3" />
+                <section className={styles.formBlock}>
+                  <label>Expérience</label>
+                  <div className={styles.formSelector}>
+                    <input
+                      type="number"
+                      max={12}
+                      min={1}
+                      name="exp_number3"
+                      defaultValue={1}
+                      required
+                    />
+                    <select name="exp_select3">
+                      <option value={"mois"}>mois</option>
+                      <option value={"ans"}>ans</option>
+                    </select>
+                  </div>
+                </section>
                 <label>Description</label>
                 <textarea
                   name="expDescription3"
@@ -101,22 +157,28 @@ const CompleteProfile = ({ isOpen, setIsOpen }: Props) => {
                 type="text"
                 name="edcSchool"
                 placeholder="Ex: Sorbonne Université"
+                required
               />
               <label>Diplôme obtenu</label>
               <input
                 type="text"
                 name="edcDiploma"
                 placeholder="Ex: Licence Développeur Web"
+                required
               />
               <label>Description</label>
               <textarea
                 name="edcDescription"
                 placeholder="Tâches et missions..."
+                required
               />
             </div>
           </section>
           {secondCounter > 0 && (
             <section className={styles.formSection}>
+              <button onClick={() => setSecondCounter((prev) => prev - 1)}>
+                <FaXmark />
+              </button>
               <h4>Education & Formation</h4>
               <div className={styles.formBlock}>
                 <label>Nom de l'établissement</label>
@@ -124,23 +186,29 @@ const CompleteProfile = ({ isOpen, setIsOpen }: Props) => {
                   type="text"
                   name="edcSchool2"
                   placeholder="Ex: Sorbonne Université"
+                  required
                 />
                 <label>Diplôme obtenu</label>
                 <input
                   type="text"
                   name="edcDiploma2"
                   placeholder="Ex: Licence Développeur Web"
+                  required
                 />
                 <label>Description</label>
                 <textarea
                   name="edcDescription2"
                   placeholder="Tâches et missions..."
+                  required
                 />
               </div>
             </section>
           )}
           {secondCounter > 1 && (
             <section className={styles.formSection}>
+              <button onClick={() => setSecondCounter((prev) => prev - 1)}>
+                <FaXmark />
+              </button>
               <h4>Education & Formation</h4>
               <div className={styles.formBlock}>
                 <label>Nom de l'établissement</label>
@@ -148,24 +216,27 @@ const CompleteProfile = ({ isOpen, setIsOpen }: Props) => {
                   type="text"
                   name="edcSchool3"
                   placeholder="Ex: Sorbonne Université"
+                  required
                 />
                 <label>Diplôme obtenu</label>
                 <input
                   type="text"
                   name="edcDiploma3"
                   placeholder="Ex: Licence Développeur Web"
+                  required
                 />
                 <label>Description</label>
                 <textarea
                   name="edcDescription3"
                   placeholder="Tâches et missions..."
+                  required
                 />
               </div>
             </section>
           )}
           {secondCounter < 2 && (
             <div
-              onClick={() => setSecondCoutner((prev) => prev + 1)}
+              onClick={() => setSecondCounter((prev) => prev + 1)}
               className={styles.addBtn}
             >
               <FaPlus />

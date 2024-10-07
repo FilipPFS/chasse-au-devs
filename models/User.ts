@@ -2,7 +2,7 @@ import { Schema, model, Document, models } from "mongoose";
 
 export interface Experience {
   jobTitle: string;
-  yearsWorked: number | null;
+  yearsWorked: string;
   quickDescription?: string;
 }
 
@@ -54,7 +54,7 @@ const userSchema = new Schema<UserSchema>({
   experience: [
     {
       jobTitle: { type: String },
-      yearsWorked: { type: Number },
+      yearsWorked: { type: String },
       quickDescription: { type: String },
     },
   ],
