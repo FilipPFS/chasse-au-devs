@@ -4,6 +4,8 @@ import { EmployerApplicationType } from "@/types/user";
 import styles from "./ApplicationsReceived.module.css";
 import FilterApplication from "@/components/FilterApplication/FilterApplication";
 
+export const dynamic = "force-dynamic";
+
 const ApplicationsReceived = async () => {
   const employerApplications: EmployerApplicationType[] | undefined =
     await getEmployerApplications();

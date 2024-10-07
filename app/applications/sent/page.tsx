@@ -4,6 +4,8 @@ import Link from "next/link";
 import JobCard from "@/components/JobCard/JobCard";
 import { getUserApplications } from "@/app/actions/getUserApplications";
 
+export const dynamic = "force-dynamic";
+
 type Props = {};
 
 const Applications = async (props: Props) => {

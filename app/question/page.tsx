@@ -5,6 +5,8 @@ import { setUserType } from "../actions/setUserType";
 import { redirect } from "next/navigation";
 import styles from "./Question.module.css";
 
+export const dynamic = "force-dynamic";
+
 type Props = {};
 
 const Question = async (props: Props) => {

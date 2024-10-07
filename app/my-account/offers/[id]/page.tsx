@@ -5,6 +5,8 @@ import React from "react";
 import styles from "./DashboardApplications.module.css";
 import { FaXmark } from "react-icons/fa6";
 
+export const dynamic = "force-dynamic";
+
 type Props = {};
 
 const DashboardApplications = async ({

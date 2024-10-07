@@ -8,6 +8,8 @@ import { FaEye } from "react-icons/fa";
 import LoaderSpinner from "@/components/LoaderSpinner/LoaderSpinner";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 type Props = {};
 
 const MyAccount = async (props: Props) => {

@@ -7,6 +7,8 @@ import { getSessionDb } from "@/app/actions/getSessionDb";
 import { redirect } from "next/navigation";
 import ApplicationForm from "@/components/ApplicationForm/ApplicationForm";
 
+export const dynamic = "force-dynamic";
+
 type Props = {};
 
 const ApplyPage = async ({

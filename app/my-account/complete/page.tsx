@@ -10,6 +10,8 @@ import styles from "./CompleteAccount.module.css";
 import { FaExclamation, FaEye } from "react-icons/fa6";
 import PdfUploader from "@/components/PdfUploader/PdfUploader";
 
+export const dynamic = "force-dynamic";
+
 type Props = {};
 
 const CompleteAccount = async (props: Props) => {

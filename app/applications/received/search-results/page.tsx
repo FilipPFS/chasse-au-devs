@@ -7,6 +7,8 @@ import EmployerApplication from "@/components/EmployerApplication/EmployerApplic
 import styles from "../ApplicationsReceived.module.css";
 import { EmployerApplicationType } from "@/types/user";
 
+export const dynamic = "force-dynamic";
+
 const SearchPage = async ({
   searchParams: { status },
 }: {

@@ -10,6 +10,8 @@ import { FaEye, FaTrash } from "react-icons/fa6";
 import { deleteJobOffer } from "@/app/actions/deleteJobOffer";
 import DeleteConfirm from "@/components/DeleteConfirm/DeleteConfirm";
 
+export const dynamic = "force-dynamic";
+
 const DasboardOffers = async () => {
   const user: UserType = await getSessionDb();
   if (user.employer !== "employer") {
