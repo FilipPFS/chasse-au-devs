@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    animation: spin 1s linear infinite;
+    color: blue;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
