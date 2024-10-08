@@ -13,6 +13,7 @@ import {
   useSession,
 } from "next-auth/react";
 import { BuiltInProviderType } from "next-auth/providers/index";
+import LoaderSpinner from "../LoaderSpinner/LoaderSpinner";
 
 type Props = {
   setOpen?: (value: SetStateAction<boolean>) => void;
@@ -21,6 +22,10 @@ type Props = {
 const Providers = ({ setOpen }: Props) => {
   const { data: session } = useSession();
   const [linksVisible, setLinksVisible] = useState(false);
+
+  if (!session) {
+    <LoaderSpinner />;
+  }
 
   const [providers, setProviders] = useState<Record<
     LiteralUnion<BuiltInProviderType, string>,

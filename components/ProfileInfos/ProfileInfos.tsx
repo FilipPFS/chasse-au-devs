@@ -43,7 +43,7 @@ const ProfileInfos = ({ user }: Props) => {
             ))}
           </div>
         ) : (
-          <p>Vous n'avez aucune expérience ajouté.</p>
+          <p>Aucune expérience ajouté.</p>
         )}
       </div>
       <div className={styles.experienceContainer}>
@@ -61,13 +61,13 @@ const ProfileInfos = ({ user }: Props) => {
             ))}
           </div>
         ) : (
-          <p>Vous n'avez aucune formation ajouté.</p>
+          <p>Aucune formation ajouté.</p>
         )}
       </div>
       <div className={styles.experienceContainer}>
         <h1>Mes liens</h1>
         <div className={styles.links}>
-          {!user.links?.linkedin && <p>Vous n'avez aucun lien ajouté.</p>}
+          {!user.links?.linkedin && <p>Aucun lien ajouté.</p>}
           {user?.links?.linkedin && (
             <a
               href={user.links.linkedin}
@@ -111,7 +111,7 @@ const ProfileInfos = ({ user }: Props) => {
             </button>
           </a>
         ) : (
-          <p>Vous n'avez pas de CV ajouté.</p>
+          <p>Aucun CV ajouté.</p>
         )}
       </div>
     </section>

@@ -49,6 +49,24 @@
     background-color: blue;
 }
 
+.zeroApplications {
+    position: fixed;
+    top: 50%;
+    gap: 10px;
+    background-color: azure;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 2;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
 @media (max-width: 750px) {
     .container {
         padding: 40px 10px;

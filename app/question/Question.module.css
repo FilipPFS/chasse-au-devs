@@ -74,4 +74,14 @@
     .modal {
         width: 90%;
     }
+
+    .selectContainer {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .form select {
+        width: 100%;
+    }
 }

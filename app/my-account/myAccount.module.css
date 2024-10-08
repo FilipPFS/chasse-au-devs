@@ -31,6 +31,25 @@
     margin-top: 6px;
 }
 
+.editButton {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.editButton:hover {
+    background-color: rgb(30, 30, 135);
+}
+
+.editButton:active {
+    background-color: rgb(14, 14, 87);
+}
+
 @media (max-width: 750px) {
     .container {
         padding: 40px 20px;
@@ -47,5 +66,10 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
+    }
+
+    .editButton {
+        width: 100%;
+        text-align: center;
     }
 }

@@ -4,6 +4,7 @@ import { EmployerApplicationType } from "@/types/user";
 import styles from "./ApplicationsReceived.module.css";
 import FilterApplication from "@/components/FilterApplication/FilterApplication";
 import LoaderSpinner from "@/components/LoaderSpinner/LoaderSpinner";
+import { FaXmark } from "react-icons/fa6";
 
 export const dynamic = "force-dynamic";
 
@@ -11,12 +12,15 @@ const ApplicationsReceived = async () => {
   const employerApplications: EmployerApplicationType[] | undefined =
     await getEmployerApplications();
 
-  if (!employerApplications) {
-    return <LoaderSpinner />;
-  }
-
-  if (employerApplications.length === 0) {
-    return <div>Aucune candidature n'a été recu pour cette offre.</div>;
+  if (employerApplications?.length === 0) {
+    return (
+      <div className={styles.zeroApplications}>
+        <span>
+          <FaXmark />
+        </span>
+        Aucune candidature n'a été recu pour le moment.
+      </div>
+    );
   }
 
   return (

@@ -16,7 +16,7 @@ const MyAccount = async (props: Props) => {
   const user: UserType | null = await getSessionDb();
 
   if (!user) {
-    return <LoaderSpinner />;
+    return <div>No user found.</div>;
   }
 
   return (
@@ -40,7 +40,9 @@ const MyAccount = async (props: Props) => {
           <CompleteProfileButton />
         )}
         {user.education!.length > 0 && user.experience!.length > 0 && (
-          <Link href={"/my-account/complete"}>Modifer mon profil</Link>
+          <Link href={"/my-account/complete"} className={styles.editButton}>
+            Modifier mon profil
+          </Link>
         )}
       </section>
       <ProfileInfos user={user} />

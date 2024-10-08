@@ -15,10 +15,6 @@ const Jobs = async () => {
   const userEmployer = user?.employer === "employer";
   const jobs: JobType[] | undefined = await getJobsOffer();
 
-  if (!jobs) {
-    return <LoaderSpinner />;
-  }
-
   return (
     <div className={styles.container}>
       <CreateJobButton userEmployer={userEmployer} />
