@@ -41,7 +41,7 @@ export const authOptions: NextAuthOptions = {
 
       session.user.id = user._id.toString();
 
-      return session;
+      return JSON.parse(JSON.stringify(session));
     },
   },
 };
