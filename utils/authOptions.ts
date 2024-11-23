@@ -11,7 +11,7 @@ export const authOptions: NextAuthOptions = {
       authorization: {
         params: {
           prompt: "consent",
-          acces_type: "offline",
+          access_type: "offline",
           response_type: "code",
         },
       },
@@ -19,29 +19,46 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async signIn({ profile }) {
-      await connectToDb();
+      try {
+        await connectToDb();
 
-      const user = await User.findOne({ email: profile?.email });
+        const user = await User.findOne({ email: profile?.email });
 
-      if (!user) {
-        const username = profile?.name?.slice(0, 20);
-        await User.create({
-          email: profile?.email,
-          username,
-          image: profile?.picture,
-        });
+        if (!user) {
+          const username = profile?.name?.slice(0, 20);
+          await User.create({
+            email: profile?.email,
+            username,
+            image: profile?.picture,
+          });
+        }
+
+        return true;
+      } catch (error) {
+        console.error("Error during sign-in:", error);
+        return false;
       }
-
-      return true;
     },
     async session({ session }) {
-      const user = await User.findOne({
-        email: session.user.email,
-      });
+      try {
+        await connectToDb();
 
-      session.user.id = user._id.toString();
+        const user = await User.findOne({
+          email: session.user.email,
+        });
 
-      return JSON.parse(JSON.stringify(session));
+        if (user) {
+          session.user.id = user._id.toString();
+        } else {
+          // Handle missing user gracefully, e.g., by logging or adding a placeholder
+          console.warn("User not found in database");
+        }
+
+        return session;
+      } catch (error) {
+        console.error("Error in session callback:", error);
+        return session; // Return the session even if there's an error
+      }
     },
   },
 };
